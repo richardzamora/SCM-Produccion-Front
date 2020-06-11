@@ -1,0 +1,55 @@
+<div class="form-edit">
+    <div class="form-head">
+        <h2>{{page_title}}</h2>
+    </div>
+    <div class="form-body-edit">
+        <form #productionDetailsForm="ngForm" (ngSubmit)="edit()">
+            <label>Número de producto</label>
+            <select class="form-control" [(ngModel)]="productsCode" [ngModelOptions]="{standalone: true}" disabled #number_product="ngModel">
+                <option [value]="product.code" *ngFor="let product of products">{{product.name}}</option>
+            </select>
+            <small *ngIf="!number_product.valid && number_product.touched" style="color: red;"></small>
+            <label>Número de stock</label>
+            <input type="number" name="stockProducts" #stock_products="ngModel" [(ngModel)]="stockProducts" class="form-control" placeholder="Escribe el número del stock" required>
+            <small *ngIf="!stock_products.valid && stock_products.touched" style="color: red;"></small>
+            <label>Fecha de inicio</label>
+            <mat-form-field style="width: 100%;">
+                <mat-label>Fecha de inicio</mat-label>
+                <input matInput [matDatepicker]="picker1" [(ngModel)]="startDate" required name="start_date" #start_date="ngModel" [ngModelOptions]="{standalone: true}">
+                <small *ngIf="!start_date.valid && start_date.touched" style="color: red;"></small>
+                <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+                <mat-datepicker #picker1 [(ngModel)]="startDate" ngDefaultControl (selectedChanged)="onChange($event)" [ngModelOptions]="{standalone: true}"></mat-datepicker>
+            </mat-form-field>
+            <label>Fecha final</label>
+            <mat-form-field style="width: 100%;">
+                <mat-label>Fecha final</mat-label>
+                <input matInput [matDatepicker]="picker2" [(ngModel)]="endDate" required name="end_date" #end_date="ngModel" [ngModelOptions]="{standalone: true}">
+                <small *ngIf="!end_date.valid && end_date.touched" style="color: red;"></small>
+                <mat-datepicker-toggle matSuffix [for]="picker2" ></mat-datepicker-toggle>
+                <mat-datepicker #picker2 [(ngModel)]="endDate" ngDefaultControl (selectedChanged)="onChange($event)" [ngModelOptions]="{standalone: true}"></mat-datepicker>
+            </mat-form-field>
+            <label>Productos procesados</label>
+            <input type="number" name="processedProducts" #processed_products="ngModel" [(ngModel)]="processedProducts" class="form-control" placeholder="Escribe el número de productos procesados" required>
+            <small *ngIf="!processed_products.valid && processed_products.touched" style="color: red;"></small>
+            <label>Estado de la produccion</label>
+            <select class="form-control" [(ngModel)]="productionStateBean" [ngModelOptions]="{standalone: true}" required #production_states="ngModel">
+                <option [value]="state.code" *ngFor="let state of productionStates">{{state.description}}</option>
+            </select>
+            <small *ngIf="!production_states.valid && production_states.touched" style="color: red;"></small>
+            <label>Número de produccion</label>
+            <div class="input-group">
+                <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" [(ngModel)]="productBatch" [ngModelOptions]="{standalone: true}" required #number_batch="ngModel" disabled>
+                <option [value]="list.code" *ngFor="let list of productions" required>{{list.code}}</option>
+                </select>
+                <small *ngIf="!number_batch.valid && number_batch.touched" style="color: red;"></small>
+                <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button"  style="margin: 0;width: 100%;" (click)="getByIdProductions(productBatch)">Buscar</button>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="productionDetailsForm.invalid">Actualizar</button>     
+        </form>
+        <div class="bn-cancel">
+            <button type="submit" class="btn btn-info c" [routerLink]="['/production-details']">Cancelar</button>
+        </div>
+    </div>
+</div>

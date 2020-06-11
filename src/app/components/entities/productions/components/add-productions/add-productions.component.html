@@ -1,0 +1,57 @@
+<mat-dialog-content class="mat-typography me">
+    <div class="formu">
+      <div class="head-form">
+        <h2 mat-dialog-title>{{page_title}}</h2>
+      </div>
+      <div class="body form">
+        <form #productionsForm="ngForm" (ngSubmit)="save()">
+          <div class="p-3">
+            <div class="col p-1">
+              <div class="col p-1">
+                <label>Fecha de inicio de orden</label><br>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Fecha de inicio de orden</mat-label>
+                    <input matInput [matDatepicker]="picker1" [(ngModel)]="startOrderDate" required name="start_OrderDate" #start_OrderDate="ngModel" [ngModelOptions]="{standalone: true}">
+                    <small *ngIf="!start_OrderDate.valid && start_OrderDate.touched" style="color: red;"></small>
+                    <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+                    <mat-datepicker #picker1 [(ngModel)]="startOrderDate" ngDefaultControl (selectedChanged)="onChange($event)" [ngModelOptions]="{standalone: true}"></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col p-1">
+                <label>Tiempo</label><br>
+                <mat-form-field style="width:100%">
+                  <input matInput type="time" placeholder="Tiempo"  [(ngModel)]="time" required name="tiempo" #tiempo="ngModel" [ngModelOptions]="{standalone: true}">
+                  <small *ngIf="!tiempo.valid && tiempo.touched" style="color: red;"></small>
+                </mat-form-field>
+              </div>
+            <div class="col p-1">
+                <label>Fecha de creación</label><br>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Fecha de creación</mat-label>
+                    <input matInput [matDatepicker]="picker3" [(ngModel)]="createDate" required name="create_Date" #create_Date="ngModel" >
+                    <small *ngIf="!create_Date.valid && create_Date.touched" style="color: red;"></small>
+                    <mat-datepicker-toggle matSuffix [for]="picker3" ></mat-datepicker-toggle>
+                    <mat-datepicker #picker3 [(ngModel)]="createDate" ngDefaultControl (selectedChanged)="onChange($event)" [ngModelOptions]="{standalone: true}"></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col p-1">
+              <label>Fecha de expiración</label><br>
+              <mat-form-field style="width: 100%;">
+                  <mat-label>Fecha de creación</mat-label>
+                  <input matInput [matDatepicker]="picker4" [(ngModel)]="expirationDate" required name="expiration_Date" #expiration_Date="ngModel" >
+                  <small *ngIf="!expiration_Date.valid && expiration_Date.touched" style="color: red;"></small>
+                  <mat-datepicker-toggle matSuffix [for]="picker4" ></mat-datepicker-toggle>
+                  <mat-datepicker #picker4 [(ngModel)]="expirationDate" ngDefaultControl (selectedChanged)="onChange($event)" [ngModelOptions]="{standalone: true}"></mat-datepicker>
+              </mat-form-field>
+            </div>
+            </div>
+          </div>
+          <button type="submit" [disabled]="productionsForm.invalid" class="btn btn-primary">{{btn}}</button>
+        </form>
+      </div>
+    </div>
+  
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="btn btn-danger">Cancel</button>
+  </mat-dialog-actions>

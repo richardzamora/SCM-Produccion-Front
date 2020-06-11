@@ -1,0 +1,52 @@
+<mat-dialog-content class="mat-typography me">
+    <div class="formu">
+      <div class="head-form">
+        <h2 mat-dialog-title>{{page_title}}</h2>
+      </div>
+      <div class="body form">
+        <form #requestsDetailRawMaterialForm="ngForm" (ngSubmit)="save()">
+          <div class="p-3">
+            <div class="col p-1">
+                <div class="col p-1">
+                    <label>Solicitud materia prima</label><br>
+                    <div class="input-group">
+                        <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" [(ngModel)]="rawMaterialRequests" [ngModelOptions]="{standalone: true}" required #raw_material_requests="ngModel">
+                        <option [value]="list.code" *ngFor="let list of listDataRawMaterialRequests" required>{{list.code}}</option>
+                        </select>
+                        <small *ngIf="!raw_material_requests.valid && raw_material_requests.touched" style="color: red;"></small>
+                        <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" (click)="getRawMaterialRequestsById(rawMaterialRequests)">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+              <div class="col p-1">
+                <label>Cantidad solicitada</label><br>
+                <input type="number" name="requestAmount" #requests_amount="ngModel" [(ngModel)]="requestAmount" class="form-control" placeholder="Escribe la cantidad solicitada" required>
+                <small *ngIf="!requests_amount.valid && requests_amount.touched" style="color: red;"></small>
+              </div>
+              <div class="col p-1">
+                <label>Fecha de entrega</label><br>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Fecha de entrega</mat-label>
+                    <input matInput [matDatepicker]="picker1" [(ngModel)]="deliveryDeadlineDate" required name="delivery_deadline_date" #delivery_deadline_date="ngModel" [ngModelOptions]="{standalone: true}">
+                    <small *ngIf="!delivery_deadline_date.valid && delivery_deadline_date.touched" style="color: red;"></small>
+                    <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+                    <mat-datepicker #picker1 [(ngModel)]="deliveryDeadlineDate" ngDefaultControl (selectedChanged)="onChange($event)" [ngModelOptions]="{standalone: true}"></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col p-1">
+                <label>Descripcion</label><br>
+                <input type="text" name="description" #description_form="ngModel" [(ngModel)]="description" class="form-control" placeholder="Escribe el número del estado" required>
+                <small *ngIf="!description_form.valid && description_form.touched" style="color: red;"></small>
+              </div>
+            </div>
+          </div>
+          <button type="submit" [disabled]="requestsDetailRawMaterialForm.invalid" class="btn btn-primary">{{btn}}</button>
+        </form>
+      </div>
+    </div>
+  
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="btn btn-danger">Cancel</button>
+  </mat-dialog-actions>

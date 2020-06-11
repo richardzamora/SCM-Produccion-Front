@@ -1,0 +1,47 @@
+<mat-dialog-content class="mat-typography me">
+    <div class="formu">
+      <div class="head-form">
+        <h2 mat-dialog-title>{{page_title}}</h2>
+      </div>
+      <div class="body form">
+        <form #rawMaterialDeliveryStatesForm="ngForm" (ngSubmit)="save()">
+          <div class="p-3">
+            <div class="col p-1">
+                <div class="col p-1">
+                    <label>Detalle solicitud materia prima</label><br>
+                    <div class="input-group">
+                        <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" [(ngModel)]="request" [ngModelOptions]="{standalone: true}" required #request_form="ngModel">
+                        <option [value]="list.code" *ngFor="let list of listDatarequest" required>{{list.code}}</option>
+                        </select>
+                        <small *ngIf="!request_form.valid && request_form.touched" style="color: red;"></small>
+                        <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" (click)="getRequestsById(request)">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+              <div class="col p-1">
+                <label>Fecha de entrega</label><br>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Fecha de entrega</mat-label>
+                    <input matInput [matDatepicker]="picker1" [(ngModel)]="dateDelivery" required name="date_delivery" #date_delivery="ngModel" [ngModelOptions]="{standalone: true}">
+                    <small *ngIf="!date_delivery.valid && date_delivery.touched" style="color: red;"></small>
+                    <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+                    <mat-datepicker #picker1 [(ngModel)]="dateDelivery" ngDefaultControl (selectedChanged)="onChange($event)" [ngModelOptions]="{standalone: true}"></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col p-1">
+                <label>Stock de entrega</label><br>
+                <input type="text" name="deliveryStock" #delivery_stock="ngModel" [(ngModel)]="deliveryStock" class="form-control" placeholder="Escribe el número del estado" required>
+                <small *ngIf="!delivery_stock.valid && delivery_stock.touched" style="color: red;"></small>
+              </div>
+            </div>
+          </div>
+          <button type="submit" [disabled]="rawMaterialDeliveryStatesForm.invalid" class="btn btn-primary">{{btn}}</button>
+        </form>
+      </div>
+    </div>
+  
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="btn btn-danger">Cancel</button>
+  </mat-dialog-actions>

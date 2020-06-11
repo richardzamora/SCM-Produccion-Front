@@ -1,0 +1,30 @@
+[33mcommit e3c529cd84b5c38940e4e5d293a2f6d550282916[m[33m ([m[1;36mHEAD -> [m[1;32mpanelAlejo[m[33m, [m[1;31morigin/panelAlejo[m[33m)[m
+Merge: bc41d99 7fbdf5a
+Author: Richard Zamora <2220171018@estudiantesunibague.edu.co>
+Date:   Tue Jun 9 22:00:13 2020 -0500
+
+    Alejo v2
+
+[33mcommit bc41d99cd8b5493d27dc8623b7ebfd13f037e3fc[m
+Author: Richard Zamora <2220171018@estudiantesunibague.edu.co>
+Date:   Tue Jun 9 18:15:55 2020 -0500
+
+    panel Alejo V2
+
+[33mcommit 7fbdf5a7952f67b6801afc69594c7190f55c6133[m
+Author: Richard Zamora <2220171018@estudiantesunibague.edu.co>
+Date:   Sat Jun 6 23:26:41 2020 -0500
+
+    Modelo del panel por Alejandro Luna
+
+[33mcommit 22df933d6e1c8353ef974326e8f98a18a63989f0[m[33m ([m[1;32mmaster[m[33m)[m
+Author: alejandro_luna <alejandro9425@gmail.com>
+Date:   Tue Jun 2 11:45:16 2020 -0500
+
+    front-crud-alertas
+
+[33mcommit 9a489d0ed8ecc901839f3031612b8cfec0ca4f12[m
+Author: alejandro_luna <alejandro9425@gmail.com>
+Date:   Wed May 20 16:42:03 2020 -0500
+
+    initial commit

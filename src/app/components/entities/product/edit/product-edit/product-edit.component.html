@@ -1,0 +1,20 @@
+<div class="form-edit">
+  <div class="form-head">
+    <h2>Editando producto</h2>
+  </div>
+  <div class="form-body-edit">
+    <form #productForm="ngForm" (ngSubmit)="save()">
+      <label>Nombre</label>
+      <input name="name" #name="ngModel"
+             [(ngModel)]="product.name" required pattern="[a-zA-Z0-9 ]+">
+      <small *ngIf="!name.valid && name.touched" style="color: red;">
+        Nombre invalido
+      </small>
+      <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Actualizar</button>
+    </form>
+    <div class="bn-cancel">
+      <button type="submit" class="btn btn-info c"
+              [routerLink]="['/product']" >Cancelar</button>
+    </div>
+  </div>
+</div>

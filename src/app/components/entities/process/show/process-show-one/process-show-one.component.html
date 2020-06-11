@@ -1,0 +1,15 @@
+<div class="cont-card">
+  <div class="card-head">
+    <h2>Proceso</h2>
+  </div>
+  <div class="card-body">
+    <h3> Proceso: {{process.processName}}</h3>
+    <h3> Orden: {{process.processOrder}}</h3>
+    <h3> Tiempo: {{process.processTime}}</h3>
+    <h3> Stock producido: {{process.stockProduced}}</h3>
+    <h3> Producto: {{process.product.name}}</h3>
+    <div class="card-btn">
+      <button type="submit" class="btn btn-info c" [routerLink]="['/process']">Regresar</button>
+    </div>
+  </div>
+</div>

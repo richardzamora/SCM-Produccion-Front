@@ -1,0 +1,20 @@
+<div class="form-edit">
+    <div class="form-head">
+        <h2>{{page_title}}</h2>
+    </div>
+    <div class="form-body-edit">
+        <form #productionnStatesForm="ngForm" (ngSubmit)="edit()">
+            <div class="p-3">
+              <div class="col p-1">
+                  <label>Descripción</label><br>
+                  <input type="text" name="description" #descripcion="ngModel" [(ngModel)]="description" class="form-control" placeholder="Escribe la descripción del estado" required>
+                  <small *ngIf="!descripcion.valid && descripcion.touched" style="color: red;"></small>
+              </div>
+            </div>
+            <button type="submit" [disabled]="productionnStatesForm.invalid" class="btn btn-primary">{{btn}}</button>
+          </form>
+        <div class="bn-cancel">
+            <button type="submit" class="btn btn-info c" [routerLink]="['/production-states']">Cancelar</button>
+        </div>
+    </div>
+</div>

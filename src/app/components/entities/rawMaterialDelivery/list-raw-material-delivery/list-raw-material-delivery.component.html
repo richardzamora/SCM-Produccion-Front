@@ -1,0 +1,35 @@
+<div class="cont-padre">
+    <div class="tab-head">
+        <h2>Estado entrega solicitud materia prima</h2>
+    </div>
+    <div class="tab-body">
+        <div class="btn-agregar">
+            <button [routerLink]="['/paneladmin']" class="bn-return">regresar al panel</button>
+        </div>
+        <!-- <div class="btn-agregar">
+             <app-add-raw-material-delivery-states-dialog></app-add-raw-material-delivery-states-dialog> 
+        </div> -->
+        <table class="tab">
+                <tr>
+                    <th>Code</th>
+                    <th>Detalle solicitud materia prima</th>
+                    <th>Fecha entrega</th>
+                    <th>Stock de entrega</th>
+                    <th>Acciónes</th>
+                </tr>
+                <tr *ngFor="let list of listData">
+                    <th>{{list.code}}</th>
+                    <th>{{list.request.code}}</th>
+                    <th>{{list.dateDelivery}}</th>
+                    <th>{{list.deliveryStock}}</th>
+                    <th>
+                        <button id="btn-ver" type="submit" [routerLink]="['/raw-material-delivery-states/show/', list.code]"><i class="fas fa-eye"></i> Ver</button>&nbsp;
+                        <button id="btn-edit" type="submit" [routerLink]="['/raw-material-delivery-states/', list.code]"><i class="fas fa-edit"></i> Editar</button>&nbsp;
+                        <button id="btn-del" type="submit" (click)="mostrarDialogo(list.code)"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                    </th>
+                </tr>
+
+        </table>
+    </div>
+    
+</div>

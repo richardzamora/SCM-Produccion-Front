@@ -1,0 +1,24 @@
+<div class="cont-padre">
+  <div class="tab-head">
+    <h2>Datos de producto</h2>
+  </div>
+  <div class="tab-body">
+    <div class="btn-agregar"><app-product-dialog></app-product-dialog></div>
+    <table class="tab">
+      <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+      <tr *ngFor="let product of products">
+        <th>{{product.code}}</th>
+        <th>{{product.name}}</th>
+        <th>
+          <button id="btn-ver" type="submit" [routerLink]="['/product/show/', product.code]"><i class="fas fa-eye"></i> Ver</button>&nbsp;
+          <button id="btn-edit" type="submit" [routerLink]="['/product/', product.code]"><i class="fas fa-edit"></i> Editar</button>&nbsp;
+          <button id="btn-del" type="submit" (click)="deleteProduct(product.code)"><i class="fas fa-trash-alt"></i> Eliminar</button>
+        </th>
+      </tr>
+    </table>
+  </div>
+</div>

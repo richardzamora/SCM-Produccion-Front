@@ -1,0 +1,99 @@
+<div class="panel-general">
+    <div class="panel-g">
+        <div class="paneladmin">
+            <div class="panel-header">
+                <h3>{{title_one}}</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="btn-add-panel">
+                    <a [routerLink]="['/StateBranchOffice']"><i class="fas fa-info-circle"></i> admin estate </a> &nbsp;&nbsp;
+                    <a [routerLink]="['/branchoffice']"><i class="fas fa-info-circle"></i> admin sucursal</a>
+                    <app-statebranchoffice-create-dialog></app-statebranchoffice-create-dialog>
+                    <app-branchoffice-create-dialog></app-branchoffice-create-dialog>
+                </div>
+                <app-branchoffice></app-branchoffice>
+            </div>
+        </div>
+
+        <div class="paneladmin">
+            <div class="panel-header">
+                <h3>{{title_two}}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="btn-add-panel">
+                    <a [routerLink]="['/humanresource']"><i class="fas fa-info-circle"></i> admin recursos humanos </a> &nbsp;&nbsp;
+                    <a [routerLink]="['/machinery']"><i class="fas fa-info-circle"></i> admin maquinaria</a>
+                    <app-create-humanresources-dialog></app-create-humanresources-dialog>
+                    <app-create-machinery-dialog></app-create-machinery-dialog>
+                </div>
+                  <app-machinery></app-machinery>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel-g">
+        <div class="paneladmin">
+            <div class="panel-header">
+                <h3>{{title_three}}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="btn-add-panel">
+                    <a [routerLink]="['/requestbatches']"><i class="fas fa-info-circle"></i> Solicitud Lotes</a>
+                    <app-requestbatches-create-dialog></app-requestbatches-create-dialog>
+                </div>
+                    <app-requestbatches></app-requestbatches>
+            </div>
+        </div>
+      <!-- Duber -->
+      <div class="paneladmin">
+        <div class="panel-header">
+          <h3>{{title_production_details}}</h3>
+        </div>
+        <div class="panel-body">
+          <div class="btn-add-panel">
+            <a [routerLink]="['/production-details']"><i class="fas fa-info-circle"></i> admin productions details </a> &nbsp;&nbsp;
+            <a [routerLink]="['/production-states']"><i class="fas fa-info-circle"></i> admin production states</a>
+            <app-add-production-details-dialog></app-add-production-details-dialog>
+            <app-add-production-states-dialog></app-add-production-states-dialog>
+          </div>
+          <app-production-details-panel></app-production-details-panel>
+        </div>
+      </div>
+    </div>
+
+  <div class="panel-g">
+
+    <div class="paneladmin">
+      <div class="panel-header">
+        <h3>{{title_raw_material_requests}}</h3>
+      </div>
+      <div class="panel-body">
+        <div class="btn-add-panel">
+          <a [routerLink]="['/productions']"><i class="fas fa-info-circle"></i> admin lote </a> &nbsp;&nbsp;
+          <a [routerLink]="['/raw-material-requests']"><i class="fas fa-info-circle"></i> admin solicitud materia prima</a>
+          <app-add-raw-material-requests-dialog></app-add-raw-material-requests-dialog>
+          <app-add-productions-dialog></app-add-productions-dialog>
+        </div>
+        <app-raw-material-requests></app-raw-material-requests>
+      </div>
+    </div>
+    <div class="paneladmin">
+      <div class="panel-header">
+        <h3>{{title_detail_raw_material}}</h3>
+      </div>
+      <div class="panel-body">
+        <div class="btn-add-panel">
+          <a [routerLink]="['/requests-details-raw-material']"><i class="fas fa-info-circle"></i> admin detalle entrega solicitud </a> &nbsp;&nbsp;
+          <a [routerLink]="['/raw-material-delivery-states']"><i class="fas fa-info-circle"></i> admin estado solicitud materia prima</a>
+          <app-add-details-raw-material-dialog></app-add-details-raw-material-dialog>
+          <app-add-raw-material-delivery-dialog></app-add-raw-material-delivery-dialog>
+        </div>
+        <app-request-detail-raw-material></app-request-detail-raw-material>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br>

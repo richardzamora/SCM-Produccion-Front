@@ -1,0 +1,19 @@
+<div class="cont-card">
+    <div class="card-head">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="card-body">
+        
+        <h3> <span style="font-weight: 550;">Producto:</span> {{productName}}</h3>
+        <h3> <span style="font-weight: 550;">Stock:</span> {{stockProducts}}</h3>
+        <h3> <span style="font-weight: 550;">Fecha de inicio:</span> {{startDate}}</h3>
+        <h3> <span style="font-weight: 550;">Fecha final:</span> {{endDate}}</h3>
+        <h3> <span style="font-weight: 550;">Productos procesados:</span> {{processedProducts}}</h3>
+        <h3> <span style="font-weight: 550;">Estado de la producción:</span> {{productionStateBean}}</h3>
+        <h3 style="display: flex;align-items: center;"> <span style="font-weight: 550;padding-right: 10px;">Producción: </span><button mat-mini-fab style="background-color: #0f1f39;"><span style="font-size: 20px;" (click)="getByIdProductions()">{{productBatch}}</span></button></h3>
+        <div class="card-btn">
+            <button type="submit" class="btn btn-info c" [routerLink]="['/production-details']">Regresar</button>
+        </div>
+    </div>
+      
+</div>

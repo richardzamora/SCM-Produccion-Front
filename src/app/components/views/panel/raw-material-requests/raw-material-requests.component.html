@@ -1,0 +1,36 @@
+<mat-form-field>
+    <input autocomplete="off" matInput (keyup)="applyFilterRawMaterialRequests($event.target.value)" 
+        placeholder="¿Que buscas?">
+</mat-form-field>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="listDataRawMaterialRequests" matSort class="tb-top">
+        <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="th-title"> Código</th>
+            <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+        </ng-container>
+        <ng-container matColumnDef="requestDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="th-title"> Fecha de solicitud </th>
+            <td mat-cell *matCellDef="let element"> {{element.requestDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="numberOrder">
+            <th mat-header-cell *matHeaderCellDef class="th-title"> Número de orden </th>
+            <td mat-cell *matCellDef="let element"> {{element.numberOrder}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="numberBatch">
+            <th mat-header-cell *matHeaderCellDef class="th-title"> Lote </th>
+            <td mat-cell *matCellDef="let element"><a mat-button (click)="getById(element.code)" class="btn-a" style="padding: 0; line-height: unset;text-align: unset;"><i class="fas fa-info-circle"></i></a></td>
+        </ng-container>
+        
+        <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef class="th-title"> Núm.Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="headerbranch"></tr>
+        <tr mat-row *matRowDef="let row; columns: headerbranch;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

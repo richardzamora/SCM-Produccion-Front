@@ -1,0 +1,15 @@
+<div class="cont-card">
+    <div class="card-head">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="card-body">
+        <h3 style="display: flex;align-items: center;"> <span style="font-weight: 550;padding-right: 10px;">Solicitud de materia prima: </span><button mat-mini-fab style="background-color: #0f1f39;"><span style="font-size: 20px;" (click)="getById()">{{rawMaterialRequests}}</span></button></h3>
+        <h3> <span style="font-weight: 550;">Cantidad solicitada:</span> {{requestsDetailRawMaterial.requestAmount}}</h3>
+        <h3> <span style="font-weight: 550;">Fecha de entrega:</span> {{requestsDetailRawMaterial.deliveryDeadlineDate}}</h3>
+        <h3> <span style="font-weight: 550;">Descripcion:</span> {{requestsDetailRawMaterial.description}}</h3>
+        <div class="card-btn">
+            <button type="submit" class="btn btn-info c" [routerLink]="['/requests-details-raw-material']">Regresar</button>
+        </div>
+    </div>
+      
+</div>

@@ -1,0 +1,20 @@
+<div class="form-edit">
+  <div class="form-head">
+    <h2>{{pageTitle}}</h2>
+  </div>
+  <div class="form-body-edit">
+    <form #machinestateForm="ngForm" (ngSubmit)="save()">
+      <label>Descripcion</label>
+      <input name="description" #description="ngModel"
+             [(ngModel)]="machineryType.description" required pattern="[a-zA-Z 0-9]+">
+      <small *ngIf="!description.valid && description.touched" style="color: red;">
+        descripcion invalida solo texto
+      </small>
+      <button type="submit" class="btn btn-primary" [disabled]="machinestateForm.invalid">Actualizar</button>
+    </form>
+    <div class="bn-cancel">
+      <button type="submit" class="btn btn-info c"
+              [routerLink]="['/machineryType']" >Cancelar</button>
+    </div>
+  </div>
+</div>

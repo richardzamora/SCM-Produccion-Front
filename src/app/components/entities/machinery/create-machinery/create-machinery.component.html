@@ -1,0 +1,90 @@
+<mat-dialog-content class="mat-typography me">
+  <div class="formu">
+    <div class="head-form">
+      <h2 mat-dialog-title>{{pageTitle}}</h2>
+    </div>
+    <div class="body form">
+      <form #machinestateForm="ngForm" (ngSubmit)="save()">
+        <div class="p-3">
+          <div class="col p-1">
+            <label>Name</label>
+            <input type="text" name="name" #name="ngModel"
+                   [(ngModel)]="machinery.name" class="form-control"
+                   placeholder="escriba el nombre de la maquina" required pattern="[a-zA-Z 0-9]+">
+            <small *ngIf="!name.valid && name.touched" style="color: #ff0000;">
+              nombre invalido
+            </small>
+          </div>
+          <div class="col p-1">
+            <label>Reference</label>
+            <input type="text" name="reference" #reference="ngModel"
+                   [(ngModel)]="machinery.reference" class="form-control"
+                   placeholder="escriba la referencia" required pattern="[a-zA-Z0-9 ]+">
+            <small *ngIf="!reference.valid && reference.touched" style="color: red;">
+              referencia invalida
+            </small>
+          </div>
+          <div class="col p-1">
+            <label>Production Capacity</label>
+            <input type="text" name="productionCapacity" #productionCapacity="ngModel"
+                   [(ngModel)]="machinery.productionCapacity" class="form-control"
+                   placeholder="escriba la capacidad de produción" required pattern="[0-9]+">
+            <small *ngIf="!productionCapacity.valid && productionCapacity.touched" style="color: red;">
+              Capacidad de producción invalida, solo números
+            </small>
+          </div>
+          <div class="col p-1">
+            <mat-form-field>
+              <mat-label>BranchOffice</mat-label>
+              <mat-select name="branchOffice" #branchOffice="ngModel"
+                          [(ngModel)]="machinery.branchOfficeBean" required >
+                <mat-option *ngFor="let branchOffice of branchOffices" [value]="branchOffice">
+                  {{branchOffice.address}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col p-1">
+            <mat-form-field>
+              <mat-label>Machine State</mat-label>
+              <mat-select name="machineState" #machineState="ngModel"
+                          [(ngModel)]="machinery.machineStateBean" required >
+                <mat-option *ngFor="let machineState of machineStates" [value]="machineState">
+                  {{machineState.description}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col p-1">
+            <mat-form-field>
+              <mat-label>Human Resource</mat-label>
+              <mat-select name="humanResource" #humanResource="ngModel"
+                          [(ngModel)]="machinery.humanResourceBean" required >
+                <mat-option *ngFor="let humanResource of humanresources" [value]="humanResource">
+                  {{humanResource.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col p-1">
+            <mat-form-field>
+              <mat-label>Machinery Type</mat-label>
+              <mat-select name="machineryType" #machineryType="ngModel"
+                          [(ngModel)]="machinery.machineryTypeBean" required >
+                <mat-option *ngFor="let machineryType of machineryTypes" [value]="machineryType">
+                  {{machineryType.description}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="machinestateForm.invalid">{{btn}}</button>
+      </form>
+    </div>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="btn btn-danger">Cancel</button>
+</mat-dialog-actions>
+

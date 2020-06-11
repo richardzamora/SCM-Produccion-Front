@@ -1,0 +1,47 @@
+<div class="form-edit">
+  <div class="form-head">
+    <h2>Editando porceso</h2>
+  </div>
+  <div class="form-body-edit">
+    <form #processForm="ngForm" (ngSubmit)="save()">
+      <div class="p-3">
+        <div class="col p-1">
+          <label>Nombre</label>
+          <input type="text" name="nombre" #name="ngModel"
+                 [(ngModel)]="process.processName" class="form-control"
+                 placeholder="Escriba el nombre del proceso" required pattern="[a-zA-Z0-9 ]+">
+          <small *ngIf="!name.valid && name.touched" style="color: red;">
+            Nombre invalido
+          </small>
+          <label>Orden</label>
+          <input type="numeric" name="orden" #order="ngModel"
+                 [(ngModel)]="process.processOrder" class="form-control"
+                 placeholder="Escriba la orden del processo" required pattern="[0-9]+">
+          <small *ngIf="!order.valid && order.touched" style="color: red;">
+            Orden invalida
+          </small>
+          <label>Tiempo</label>
+          <input type="text" name="tiempo" #time="ngModel"
+                 [(ngModel)]="process.processTime" class="form-control"
+                 placeholder="Escriba el tiempo del proceso" required pattern="[a-zA-Z0-9 ]+">
+          <small *ngIf="!time.valid && time.touched" style="color: red;">
+            Tiempo invalido
+          </small>
+          <label>Sock Producido</label>
+          <input type="text" name="stock" #stock="ngModel"
+                 [(ngModel)]="process.stockProduced" class="form-control"
+                 placeholder="Escriba el Stock del proceso" required pattern="[0-9]+">
+          <small *ngIf="!stock.valid && stock.touched" style="color: red;">
+            Stock invalido
+          </small>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="processForm.invalid">{{btn}}</button>
+    </form>
+
+    <div class="bn-cancel">
+      <button type="submit" class="btn btn-info c"
+              [routerLink]="['/process']" >Cancelar</button>
+    </div>
+  </div>
+</div>

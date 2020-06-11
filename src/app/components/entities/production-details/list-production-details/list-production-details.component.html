@@ -1,0 +1,39 @@
+<div class="cont-padre">
+    <div class="tab-head">
+        <h2>Detalle de la producción</h2>
+    </div>
+    <div class="tab-body">
+         <!-- <div class="btn-agregar"><app-add-production-details-dialog></app-add-production-details-dialog></div> -->
+         <div class="btn-agregar">
+            <button [routerLink]="['/paneladmin']" class="bn-return">regresar al panel</button>
+        </div>
+        <table class="tab">
+                <tr>
+                    <th>Producto</th>
+                    <th>Stock productos</th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha final</th>
+                    <th>Productos procesados</th>
+                    <th>Estado de la producción</th>
+                    <th>Producción</th>
+                    <th>Acciónes</th>
+                </tr>
+                <tr *ngFor="let list of listData; let indice=index">
+                    <th>{{productNames[indice].name}}</th>
+                    <th>{{list.stockProducts}}</th>
+                    <th>{{list.startDate}}</th>
+                    <th>{{list.endDate}}</th>
+                    <th>{{list.processedProducts}}</th>
+                    <th>{{list.productionStateBean.description}}</th>
+                    <th>{{list.id.productBatch}}</th>
+                    <th>
+                        <button id="btn-ver" type="submit" [routerLink]="['/production-details/show/', list.id.productsCode, list.id.productBatch]"><i class="fas fa-eye"></i> Ver</button>&nbsp;
+                        <button id="btn-edit" type="submit" [routerLink]="['/production-details/', list.id.productsCode, list.id.productBatch]"><i class="fas fa-edit"></i> Editar</button>&nbsp;
+                        <button id="btn-del" type="submit" (click)="mostrarDialogo(list.id.productsCode, list.id.productBatch)"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                    </th>
+                </tr>
+
+        </table>
+    </div>
+    
+</div>

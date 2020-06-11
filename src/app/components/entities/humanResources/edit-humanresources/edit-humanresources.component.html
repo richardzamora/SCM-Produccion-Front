@@ -1,0 +1,45 @@
+<div class="form-edit">
+  <div class="form-head">
+    <h2>{{pageTitle}}</h2>
+  </div>
+  <div class="form-body-edit">
+    <form #machinestateForm="ngForm" (ngSubmit)="save()">
+      <div class="p-3">
+        <div class="col p-1">
+          <label>DNI</label>
+          <input type="number" name="dni" #dni="ngModel"
+                 [(ngModel)]="humanresource.dni" class="form-control"
+                 placeholder="escriba el dni" required pattern="[0-9]+">
+          <small *ngIf="!dni.valid && dni.touched" style="color: red;">
+            dni invalido solo numeros
+          </small>
+        </div>
+        <div class="col p-1">
+          <label>Name</label>
+          <input type="text" name="name" #name="ngModel"
+                 [(ngModel)]="humanresource.name" class="form-control"
+                 placeholder="escriba la descripcion" required pattern="[a-zA-Z0-9 ]+">
+          <small *ngIf="!name.valid && name.touched" style="color: red;">
+            nombre invalido solo texto
+          </small>
+        </div>
+        <div class="col p-1">
+          <mat-form-field>
+            <mat-label>Workshift</mat-label>
+            <mat-select name="workshift" #workshift="ngModel"
+                        [(ngModel)]="humanresource.workShift.code" required >
+              <mat-option *ngFor="let workshift of workshifts" [value]="workshift.code">
+                {{workshift.description}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="machinestateForm.invalid">{{btn}}</button>
+    </form>
+    <div class="bn-cancel">
+      <button type="submit" class="btn btn-info c"
+              [routerLink]="['/humanresource']" >Cancelar</button>
+    </div>
+  </div>
+</div>

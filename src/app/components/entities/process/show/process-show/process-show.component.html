@@ -1,0 +1,32 @@
+<div class="cont-padre">
+  <div class="tab-head">
+    <h2>Datos de procesos</h2>
+  </div>
+  <div class="tab-body">
+    <div class="btn-agregar"><app-process-dialog></app-process-dialog></div>
+    <table class="tab">
+      <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Orden</th>
+        <th>Tiempo</th>
+        <th>Stock producido</th>
+        <th>Producto</th>
+        <th>Acciones</th>
+      </tr>
+      <tr *ngFor="let process of processes">
+        <th>{{process.code}}</th>
+        <th>{{process.processName}}</th>
+        <th>{{process.processOrder}}</th>
+        <th>{{process.processTime}}</th>
+        <th>{{process.stockProduced}}</th>
+        <th>{{process.product.name}}</th>
+        <th>
+          <button id="btn-ver" type="submit" [routerLink]="['/process/show/', process.code]"><i class="fas fa-eye"></i> Ver</button>&nbsp;
+          <button id="btn-edit" type="submit" [routerLink]="['/process/', process.code]"><i class="fas fa-edit"></i> Editar</button>&nbsp;
+          <button id="btn-del" type="submit" (click)="deleteProduct(process.code)"><i class="fas fa-trash-alt"></i> Eliminar</button>
+        </th>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<mat-dialog-content class="mat-typography me">
+  <div class="formu">
+    <div class="head-form">
+      <h2 mat-dialog-title>{{pageTitle}}</h2>
+    </div>
+    <div class="body form">
+      <form #productForm="ngForm" (ngSubmit)="save()">
+        <div class="p-3">
+          <div class="col p-1">
+            <label>Nombre</label>
+            <input type="text" name="nombre" #name="ngModel"
+                   [(ngModel)]="product.name" class="form-control"
+                   placeholder="Escriba el nombre del producto" required pattern="[a-zA-Z0-9 ]+">
+            <small *ngIf="!name.valid && name.touched" style="color: red;">
+              Nombre invalido
+            </small>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">{{btn}}</button>
+      </form>
+    </div>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="btn btn-danger">Cancel</button>
+</mat-dialog-actions>

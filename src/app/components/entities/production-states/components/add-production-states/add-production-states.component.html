@@ -1,0 +1,25 @@
+<mat-dialog-content class="mat-typography me">
+    <div class="formu">
+      <div class="head-form">
+        <h2 mat-dialog-title>{{page_title}}</h2>
+      </div>
+      <div class="body form">
+        <form #productionnStatesForm="ngForm" (ngSubmit)="save()">
+          <div class="p-3">
+            <div class="col p-1">
+              <div class="col p-1">
+                <label>Descripción</label><br>
+                <input type="text" name="description" #descripcion="ngModel" [(ngModel)]="description" class="form-control" placeholder="Escribe la descripción del estado" required>
+                <small *ngIf="!descripcion.valid && descripcion.touched" style="color: red;"></small>
+              </div>
+            </div>
+          </div>
+          <button type="submit" [disabled]="productionnStatesForm.invalid" class="btn btn-primary">{{btn}}</button>
+        </form>
+      </div>
+    </div>
+  
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="btn btn-danger">Cancel</button>
+  </mat-dialog-actions>

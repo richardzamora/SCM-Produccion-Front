@@ -1,0 +1,34 @@
+<div class="form-edit">
+    <div class="form-head">
+        <h2>{{page_title}}</h2>
+    </div>
+    <div class="form-body-edit">
+        <form #rawMaterialDeliveryStatesForm="ngForm" (ngSubmit)="edit()">
+            <label>Detalle solicitud materia prima</label><br>
+                <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" [(ngModel)]="request" [ngModelOptions]="{standalone: true}" required #request_form="ngModel">
+                    <option [value]="list.code" *ngFor="let list of listDatarequest" required>{{list.code}}</option>
+                    </select>
+                    <small *ngIf="!request_form.valid && request_form.touched" style="color: red;"></small>
+                    <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" (click)="getRequestsById(request)" style="margin: 0;width: 100%;">Buscar</button>
+                    </div>
+                </div>
+            <label>Fecha de entrega</label><br>
+            <mat-form-field style="width: 100%;">
+                <mat-label>Fecha de entrega</mat-label>
+                <input matInput [matDatepicker]="picker1" [(ngModel)]="dateDelivery" required name="date_delivery" #date_delivery="ngModel" [ngModelOptions]="{standalone: true}">
+                <small *ngIf="!date_delivery.valid && date_delivery.touched" style="color: red;"></small>
+                <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+                <mat-datepicker #picker1 [(ngModel)]="dateDelivery" ngDefaultControl (selectedChanged)="onChange($event)" [ngModelOptions]="{standalone: true}"></mat-datepicker>
+            </mat-form-field>
+            <label>Stock de entrega</label><br>
+                <input type="text" name="deliveryStock" #delivery_stock="ngModel" [(ngModel)]="deliveryStock" class="form-control" placeholder="Escribe el número del estado" required>
+                <small *ngIf="!delivery_stock.valid && delivery_stock.touched" style="color: red;"></small>
+            <button type="submit" class="btn btn-primary" [disabled]="rawMaterialDeliveryStatesForm.invalid">Actualizar</button>     
+        </form>
+        <div class="bn-cancel">
+            <button type="submit" class="btn btn-info c" [routerLink]="['/raw-material-delivery-states']">Cancelar</button>
+        </div>
+    </div>
+</div>

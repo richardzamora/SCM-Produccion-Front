@@ -1,0 +1,15 @@
+<div class="cont-card">
+    <div class="card-head">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="card-body">
+        <h3> <span style="font-weight: 550;">Fecha de inicio de orden:</span> {{productions.startOrderDate}}</h3>
+        <h3> <span style="font-weight: 550;">Tiempo:</span> {{productions.time}}</h3>
+        <h3> <span style="font-weight: 550;">Fecha de creación:</span> {{productions.createDate}}</h3>
+        <h3> <span style="font-weight: 550;">Fecha de expiración:</span> {{productions.expirationDate}}</h3>
+        <div class="card-btn">
+            <button type="submit" class="btn btn-info c" [routerLink]="['/productions']">Regresar</button>
+        </div>
+    </div>
+      
+</div>

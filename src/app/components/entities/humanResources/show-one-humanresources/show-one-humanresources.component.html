@@ -1,0 +1,14 @@
+<div class="cont-card">
+  <div class="card-head">
+    <h2>{{title}}</h2>
+  </div>
+  <div class="card-body">
+    <h3> DNI: {{humanresource.dni}}</h3>
+    <h3> Nombre: {{humanresource.name}}</h3>
+    <h3> Turno de trabajo: {{humanresource.workShift.description}}</h3>
+    <div class="card-btn">
+      <button type="submit" class="btn btn-info c" [routerLink]="['/humanresource']">Regresar</button>
+    </div>
+  </div>
+
+</div>

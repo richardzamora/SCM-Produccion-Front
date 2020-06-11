@@ -1,0 +1,43 @@
+<div class="cont-padre">
+  <div class="tab-head">
+    <h2>{{title}}</h2>
+  </div>
+  <div class="tab-body">
+    <div class="btn-agregar"><button [routerLink]="['/paneladmin']" class="bn-return">regresar al panel</button></div>
+    <table class="tab">
+      <tr>
+        <th>Codigo</th>
+        <th>nombre</th>
+        <th>referencia</th>
+        <th>capacidad de producción</th>
+        <th>sucursal</th>
+        <th>estado</th>
+        <th>recurso humano</th>
+        <th>tipo de maquinaria</th>
+        <th>Acciones</th>
+      </tr>
+      <tr *ngFor="let machinery of machineries">
+        <th>{{machinery.code}}</th>
+        <th>{{machinery.name}}</th>
+        <th>{{machinery.reference}}</th>
+        <th>{{machinery.productionCapacity}}</th>
+        <th>{{machinery.branchOfficeBean.address}}</th>
+        <th>{{machinery.machineStateBean.description}}</th>
+        <th>{{machinery.humanResourceBean.name}}</th>
+        <th>{{machinery.machineryTypeBean.description}}</th>
+        <th>
+          <button id="btn-ver" type="submit" [routerLink]="['/machinery/show/', machinery.code]"><i class="fas fa-eye"></i> Ver</button>&nbsp;
+          <button id="btn-edit" type="submit" [routerLink]="['/machinery/', machinery.code]"><i class="fas fa-edit"></i> Editar</button>&nbsp;
+          <button id="btn-del" type="submit" (click)="delete(machinery.code)"><i class="fas fa-trash-alt"></i> Eliminar</button>
+        </th>
+         </tr>
+
+       </table>
+     </div>
+  <div>
+    <a [routerLink]="['/branchoffice']"><i class="fas fa-info-circle"></i> admin branchOffices </a>
+    <a [routerLink]="['/machinestate']"><i class="fas fa-info-circle"></i> admin machineStates </a>
+    <a [routerLink]="['/humanresource']"><i class="fas fa-info-circle"></i> admin humanResource </a>
+    <a [routerLink]="['/machineryType']"><i class="fas fa-info-circle"></i> admin machineryTypes </a>
+  </div>
+   </div>
